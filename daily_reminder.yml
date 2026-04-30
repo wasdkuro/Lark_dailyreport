@@ -1,0 +1,16 @@
+name: Lark Daily Reminder
+
+on:
+  schedule:
+    - cron: '45 9 * * 1-5'  # UTC 8:30 = JST 17:30（月〜金）
+  workflow_dispatch:          # 手動テスト用
+
+jobs:
+  send-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Send reminder
+        env:
+          LARK_WEBHOOK_URL: ${{ secrets.LARK_WEBHOOK_URL }}
+        run: python send_reminder.py
