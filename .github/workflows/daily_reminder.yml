@@ -2,8 +2,9 @@ name: Lark Daily Reminder
 
 on:
   schedule:
-    - cron: '00 8 * * 1-5'  # UTC 8:30 = JST 17:30（月〜金）
-  workflow_dispatch:          # 手動テスト用
+    - cron: '30 6 * * 1-5'   
+    - cron: '0 8 * * 1-5'   
+  workflow_dispatch:
 
 jobs:
   send-reminder:
@@ -13,4 +14,5 @@ jobs:
       - name: Send reminder
         env:
           LARK_WEBHOOK_URL: ${{ secrets.LARK_WEBHOOK_URL }}
+          GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
         run: python send_reminder.py
