@@ -2,7 +2,7 @@ name: Lark Daily Reminder
 
 on:
   schedule:
-    - cron: '45 9 * * 1-5'  # UTC 8:30 = JST 17:30（月〜金）
+    - cron: '00 8 * * 1-5'  # UTC 8:30 = JST 17:30（月〜金）
   workflow_dispatch:          # 手動テスト用
 
 jobs:
