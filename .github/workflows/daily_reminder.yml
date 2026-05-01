@@ -2,8 +2,8 @@ name: Lark Daily Reminder
 
 on:
   schedule:
-    - cron: '30 6 * * 1-5'   
-    - cron: '0 8 * * 1-5'   
+    - cron: '24 11 * * 1-5'   
+    - cron: '27 11 * * 1-5'   
   workflow_dispatch:
 
 jobs:
